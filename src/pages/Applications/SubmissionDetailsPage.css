@@ -1,0 +1,657 @@
+/* ==========================================
+   SUBMISSION DETAILS PAGE - MOBILE-FIRST
+   ========================================== */
+
+/* Main Container */
+.submission-details-page {
+    min-height: 100vh;
+    padding-top: 11.5rem; /* Header height (8rem banner + 3.5rem nav) */
+    background-color: var(--background-primary);
+}
+
+.submission-details-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+}
+
+/* Header Section */
+.submission-details-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.submission-details-title-section {
+    flex: 1;
+}
+
+.submission-details-title {
+    font-size: 1.75rem;
+    font-weight: 900;
+    margin: 0 0 0.25rem 0;
+    color: var(--text-primary);
+    font-family: 'Orbitron', 'Impact', sans-serif;
+    line-height: 1.2;
+}
+
+.submission-details-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin: 0;
+    font-family: 'Courier New', monospace;
+}
+
+.submission-details-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.submission-details-btn {
+    font-size: 0.875rem;
+    padding: 0.625rem 1rem;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: fit-content;
+    justify-content: center;
+}
+
+.btn-icon {
+    flex-shrink: 0;
+}
+
+/* Show mobile text on small screens */
+.btn-text-mobile {
+    display: inline;
+}
+
+.btn-text-desktop {
+    display: none;
+}
+
+/* Card Container */
+.submission-details-card {
+    background-color: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading State */
+.submission-details-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+    gap: 1rem;
+    color: var(--text-secondary);
+}
+
+/* Error State */
+.submission-details-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+.submission-details-error-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin: 0 0 0.5rem 0;
+    color: var(--text-primary);
+    font-family: 'Orbitron', 'Impact', sans-serif;
+}
+
+.submission-details-error-text {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* Content Layout */
+.submission-details-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Status Card */
+.submission-status-card {
+    background: linear-gradient(135deg, var(--background-secondary) 0%, var(--background-tertiary) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.submission-status-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.submission-status-header svg {
+    flex-shrink: 0;
+}
+
+.submission-status-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.submission-status-value {
+    font-size: 1.5rem;
+    font-weight: 900;
+    font-family: 'Orbitron', 'Impact', sans-serif;
+    text-transform: uppercase;
+}
+
+/* Info Grid */
+.submission-info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.submission-info-card {
+    background-color: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    transition: all 0.2s ease;
+}
+
+.submission-info-card:hover {
+    border-color: var(--accent-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.15);
+}
+
+.submission-info-icon {
+    color: var(--accent-blue);
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+}
+
+.submission-info-content {
+    flex: 1;
+}
+
+.submission-info-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.submission-info-value {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+/* Sections */
+.submission-section {
+    background-color: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.submission-section-warning {
+    background-color: rgba(239, 68, 68, 0.05);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.submission-section-header {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--background-tertiary);
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.submission-section-warning .submission-section-header {
+    background-color: rgba(239, 68, 68, 0.1);
+    border-bottom-color: rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+}
+
+.submission-section-header svg {
+    color: var(--accent-blue);
+    flex-shrink: 0;
+}
+
+.submission-section-warning .submission-section-header svg {
+    color: #ef4444;
+}
+
+.submission-section-content {
+    padding: 1.25rem;
+    color: var(--text-primary);
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* Data Section */
+.submission-data-section {
+    background-color: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.submission-data-content {
+    margin: 0;
+    padding: 1.25rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: 0.85rem;
+    color: #a8a8b3;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
+}
+
+/* Attachments Section */
+.submission-attachments-section {
+    background-color: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.submission-attachments-count {
+    margin-left: auto;
+    background-color: rgba(14, 165, 233, 0.2);
+    color: var(--accent-blue);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.submission-attachments-empty {
+    padding: 2rem 1.25rem;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    background-color: var(--background-tertiary);
+}
+
+.submission-attachments-grid {
+    padding: 1.25rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+}
+
+.submission-attachment-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background-color: var(--background-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.submission-attachment-item:hover {
+    border-color: var(--accent-blue);
+    background-color: rgba(14, 165, 233, 0.05);
+}
+
+.submission-attachment-icon {
+    color: var(--accent-blue);
+    flex-shrink: 0;
+}
+
+.submission-attachment-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.submission-attachment-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+}
+
+.submission-attachment-id {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-family: 'Courier New', monospace;
+}
+
+/* ==========================================
+   TABLET RESPONSIVE (768px+)
+   ========================================== */
+@media (min-width: 768px) {
+    .submission-details-page {
+        padding-top: 16rem; /* Adjusted for tablet header (12rem banner + 4rem nav) */
+    }
+
+    .submission-details-container {
+        padding: 2rem 1.5rem;
+    }
+
+    .submission-details-header {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+    }
+
+    .submission-details-title {
+        font-size: 2.25rem;
+    }
+
+    .submission-details-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .submission-details-actions {
+        flex-wrap: nowrap;
+        align-items: flex-start;
+    }
+
+    .submission-details-btn {
+        flex: 0 0 auto;
+    }
+
+    /* Show desktop text, hide mobile */
+    .btn-text-mobile {
+        display: none;
+    }
+
+    .btn-text-desktop {
+        display: inline;
+    }
+
+    .submission-details-content {
+        gap: 2rem;
+    }
+
+    .submission-status-card {
+        padding: 2rem;
+    }
+
+    .submission-status-value {
+        font-size: 2rem;
+    }
+
+    .submission-info-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .submission-info-card {
+        padding: 1.5rem;
+    }
+
+    .submission-info-value {
+        font-size: 1rem;
+    }
+
+    .submission-section-header {
+        padding: 1.25rem 1.5rem;
+        font-size: 1.125rem;
+    }
+
+    .submission-section-content {
+        padding: 1.5rem;
+    }
+
+    .submission-data-content {
+        padding: 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .submission-attachments-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+
+    .submission-details-error {
+        padding: 4rem 2rem;
+    }
+
+    .submission-details-error-title {
+        font-size: 2rem;
+    }
+
+    .submission-details-error-text {
+        font-size: 1rem;
+    }
+}
+
+/* ==========================================
+   DESKTOP RESPONSIVE (1024px+)
+   ========================================== */
+@media (min-width: 1024px) {
+    .submission-details-page {
+        padding-top: 20rem; /* Adjusted for desktop header (16rem banner + 4rem nav) */
+    }
+
+    .submission-details-container {
+        padding: 2.5rem 2rem;
+    }
+
+    .submission-details-header {
+        margin-bottom: 2.5rem;
+    }
+
+    .submission-details-title {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .submission-details-subtitle {
+        font-size: 1rem;
+    }
+
+    .submission-details-content {
+        gap: 2.5rem;
+    }
+
+    .submission-status-card {
+        padding: 2.5rem;
+        border-radius: 1rem;
+    }
+
+    .submission-status-value {
+        font-size: 2.5rem;
+    }
+
+    .submission-info-card {
+        padding: 1.75rem;
+    }
+
+    .submission-section,
+    .submission-data-section,
+    .submission-attachments-section {
+        border-radius: 1rem;
+    }
+
+    .submission-section-header {
+        padding: 1.5rem 2rem;
+        font-size: 1.25rem;
+    }
+
+    .submission-section-content {
+        padding: 2rem;
+        font-size: 1rem;
+    }
+
+    .submission-data-content {
+        padding: 2rem;
+        font-size: 0.95rem;
+    }
+
+    .submission-attachments-grid {
+        padding: 2rem;
+        gap: 1.25rem;
+    }
+
+    .submission-attachment-item {
+        padding: 1.25rem;
+    }
+
+    /* Hover effects for desktop */
+    .submission-attachment-item:hover {
+        transform: translateX(4px);
+    }
+
+    .submission-status-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(14, 165, 233, 0.2);
+    }
+}
+
+/* ==========================================
+   EXTRA LARGE DESKTOP (1440px+)
+   ========================================== */
+@media (min-width: 1440px) {
+    .submission-details-container {
+        padding: 3rem 2rem;
+    }
+
+    .submission-details-title {
+        font-size: 3rem;
+    }
+
+    .submission-status-card {
+        padding: 3rem;
+    }
+
+    .submission-status-value {
+        font-size: 3rem;
+    }
+
+    .submission-info-card {
+        padding: 2rem;
+    }
+
+    .submission-info-value {
+        font-size: 1.125rem;
+    }
+}
+
+/* ==========================================
+   ACCESSIBILITY & FOCUS STATES
+   ========================================== */
+.submission-details-btn:focus {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+}
+
+/* ==========================================
+   ANIMATIONS
+   ========================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.submission-details-content > * {
+    animation: fadeInUp 0.4s ease-out;
+}
+
+.submission-details-content > *:nth-child(1) { animation-delay: 0.05s; }
+.submission-details-content > *:nth-child(2) { animation-delay: 0.1s; }
+.submission-details-content > *:nth-child(3) { animation-delay: 0.15s; }
+.submission-details-content > *:nth-child(4) { animation-delay: 0.2s; }
+.submission-details-content > *:nth-child(5) { animation-delay: 0.25s; }
+.submission-details-content > *:nth-child(6) { animation-delay: 0.3s; }
+
+/* Reset animation for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .submission-details-content > * {
+        animation: none;
+    }
+}
+
+/* ==========================================
+   STATUS-SPECIFIC STYLING
+   ========================================== */
+/* Pending - Yellow glow */
+.submission-status-value[style*="color: #eab308"] {
+    animation: pulse-glow-yellow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow-yellow {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(234, 179, 8, 0.3);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(234, 179, 8, 0.6);
+    }
+}
+
+/* Approved - Green glow */
+.submission-status-value[style*="color: var(--color-verified)"] {
+    text-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+}
+
+/* Rejected - Red glow */
+.submission-status-value[style*="color: #ef4444"] {
+    text-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
+}
+
+/* Under Review - Blue glow */
+.submission-status-value[style*="color: var(--accent-blue)"] {
+    text-shadow: 0 0 15px rgba(14, 165, 233, 0.3);
+}
+.submission-data-form{
+    padding: 1.25rem;
+    display: grid;
+    gap: 1rem;
+}
+
+.submission-data-field{
+    display: grid;
+    gap: .5rem;
+    padding: 1rem;
+    background: var(--background-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: .75rem;
+}
+
+.submission-data-label{
+    font-weight: 800;
+    color: var(--text-primary);
+    font-size: .9rem;
+}

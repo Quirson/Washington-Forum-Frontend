@@ -1,0 +1,547 @@
+/* ==========================================
+   HOME FEED - RESPONSIVE STYLES
+   News, Updates & Content Pages
+   NÃO MEXE NO HEADER - APENAS FEED!
+   ========================================== */
+
+/* PAGE WRAPPER */
+.home-feed-page {
+    min-height: 100vh;
+    padding-top: 12rem; /* Mobile - space for header */
+    padding-bottom: 3rem;
+    background: linear-gradient(180deg,
+    var(--background-primary) 0%,
+    var(--background-secondary) 100%);
+}
+
+/* HERO SECTION */
+.feed-hero {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg,
+    rgba(14, 165, 233, 0.1) 0%,
+    rgba(6, 182, 212, 0.05) 100%);
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+}
+
+.feed-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+    font-family: 'Orbitron', 'Impact', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.feed-subtitle {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin: 0.25rem 0 0 0;
+    font-weight: 400;
+}
+
+.feed-hero .btn-primary {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* LOADING */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 2rem;
+}
+
+/* EMPTY STATE */
+.empty-card {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    background: var(--background-tertiary);
+    border: 2px dashed var(--border-color);
+}
+
+.empty-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+    font-family: 'Orbitron', 'Impact', sans-serif;
+}
+
+.empty-sub {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+/* FEED LIST */
+.feed-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* FEED CARD */
+.feed-card {
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    background: var(--background-tertiary);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.feed-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg,
+    transparent 0%,
+    var(--accent-blue) 50%,
+    transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.feed-card:hover {
+    border-color: rgba(14, 165, 233, 0.5);
+    box-shadow: 0 10px 30px rgba(14, 165, 233, 0.15);
+    transform: translateY(-2px);
+}
+
+.feed-card:hover::before {
+    opacity: 1;
+}
+
+/* FEED HEADER */
+.feed-head {
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.feed-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.author-avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent-blue);
+    flex-shrink: 0;
+}
+
+.author-meta {
+    flex: 1;
+    min-width: 0;
+}
+
+.author-name {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.feed-head .role-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.125rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.625rem;
+    font-weight: 700;
+    border: 1px solid;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.author-time {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-top: 0.125rem;
+}
+
+/* FEED BODY */
+.feed-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.feed-item-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: white;
+    font-family: 'Orbitron', 'Impact', sans-serif;
+    line-height: 1.4;
+}
+
+.feed-item-content {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* FEED IMAGE */
+.feed-image-wrap {
+    margin-top: 0.5rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background: var(--background-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.feed-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+/* MODAL */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.modal {
+    width: 100%;
+    max-width: 600px;
+    background: var(--background-tertiary);
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    margin: auto;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    font-family: 'Orbitron', 'Impact', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.modal-header .btn-ghost {
+    padding: 0.5rem;
+    min-width: 2.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.modal-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.field-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.input,
+.textarea {
+    background: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-family: inherit;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.input:focus,
+.textarea:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.6;
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+}
+
+.modal-footer {
+    padding: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+}
+
+.modal-footer .btn-ghost,
+.modal-footer .btn-primary {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.modal-footer .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* TABLET (768px+) */
+@media (min-width: 768px) {
+    .home-feed-page {
+        padding-top: 14rem;
+    }
+
+    .feed-hero {
+        flex-direction: row;
+        align-items: center;
+        padding: 2rem;
+    }
+
+    .feed-hero .btn-primary {
+        width: auto;
+        min-width: 150px;
+    }
+
+    .feed-title {
+        font-size: 2rem;
+    }
+
+    .feed-subtitle {
+        font-size: 1rem;
+    }
+
+    .feed-card {
+        padding: 2rem;
+    }
+
+    .author-avatar {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .author-name {
+        font-size: 1rem;
+    }
+
+    .feed-item-title {
+        font-size: 1.5rem;
+    }
+
+    .feed-item-content {
+        font-size: 1rem;
+    }
+
+    .feed-image {
+        max-height: 500px;
+    }
+}
+
+/* DESKTOP (1024px+) */
+@media (min-width: 1024px) {
+    .home-feed-page {
+        padding-top: 18rem;
+    }
+
+    .feed-hero {
+        padding: 2.5rem 3rem;
+    }
+
+    .feed-title {
+        font-size: 2.5rem;
+    }
+
+    .feed-subtitle {
+        font-size: 1.125rem;
+    }
+
+    .feed-list {
+        gap: 2rem;
+    }
+
+    .feed-card {
+        padding: 2.5rem;
+    }
+
+    .author-avatar {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+    .feed-item-title {
+        font-size: 1.75rem;
+    }
+
+    .feed-image {
+        max-height: 600px;
+    }
+
+    .modal {
+        max-width: 700px;
+    }
+}
+
+/* LARGE DESKTOP (1280px+) */
+@media (min-width: 1280px) {
+    .home-feed-page .container-custom {
+        max-width: 900px;
+    }
+
+    .feed-hero {
+        padding: 3rem;
+    }
+
+    .feed-card {
+        padding: 3rem;
+    }
+}
+/* Wide mode (Community Content) */
+.feed-wide {
+    max-width: 1200px;
+}
+
+/* Feed vira grid no desktop (fica WTF bonito) */
+@media (min-width: 1024px) {
+    .feed-wide .feed-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.75rem;
+    }
+
+    /* Cards com imagem/embeds ficam mais “gallery” */
+    .feed-wide .feed-card {
+        height: 100%;
+    }
+}
+
+@media (min-width: 1280px) {
+    .feed-wide .feed-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+/* ==========================================
+   COMMUNITY CONTENT - DESKTOP FULL WIDTH
+   ========================================== */
+
+.container-wide {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Desktop: ocupar a tela toda abaixo do header */
+@media (min-width: 1024px) {
+    .container-wide {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    /* Só content: feed mais “wide” */
+    .home-feed-page.content-wide .feed-list {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    /* Cards maiores */
+    .home-feed-page.content-wide .feed-card {
+        padding: 2.75rem;
+        border-radius: 1.25rem;
+    }
+
+    /* Título e texto maiores */
+    .home-feed-page.content-wide .feed-item-title {
+        font-size: 2rem;
+    }
+
+    .home-feed-page.content-wide .feed-item-content {
+        font-size: 1.05rem;
+        line-height: 1.8;
+    }
+
+    /* Imagem MUITO maior */
+    .home-feed-page.content-wide .feed-image-wrap {
+        border-radius: 1rem;
+    }
+
+    .home-feed-page.content-wide .feed-image {
+        max-height: 820px;
+        object-fit: cover;
+    }
+
+    /* Embeds maiores também */
+    .home-feed-page.content-wide .embed-responsive {
+        padding-bottom: 56.25%;
+    }
+
+    .home-feed-page.content-wide .embed-card {
+        border-radius: 1rem;
+    }
+}
+.feed-image.clickable {
+    cursor: zoom-in;
+}

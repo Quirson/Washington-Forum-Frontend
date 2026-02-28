@@ -1,0 +1,91 @@
+.public-submission-page{
+    min-height:100vh;
+    padding-top:120px;
+    background:var(--background-primary);
+}
+.public-submission-container{
+    max-width:1000px;
+    margin:0 auto;
+    padding:1.25rem 1rem 3rem;
+}
+.public-submission-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:1rem;
+    margin-bottom:1rem;
+}
+.public-submission-header h1{
+    margin:0;
+    color:white;
+    font-family:'Orbitron',sans-serif;
+    font-weight:900;
+}
+.public-submission-header p{
+    margin:0.35rem 0 0;
+    color:var(--text-secondary);
+    font-family:'Courier New',monospace;
+    font-size:.9rem;
+}
+.public-submission-card{
+    background:var(--background-secondary);
+    border:1px solid var(--border-color);
+    border-radius:14px;
+    overflow:hidden;
+}
+.public-submission-card-title{
+    padding:1rem 1.1rem;
+    border-bottom:1px solid var(--border-color);
+    display:flex;
+    align-items:center;
+    gap:.6rem;
+    color:white;
+    font-weight:900;
+}
+.public-submission-loading,
+.public-submission-empty{
+    padding:2rem;
+    text-align:center;
+    color:var(--text-secondary);
+}
+.public-submission-body{
+    padding:1.1rem;
+}
+.public-submission-row{
+    display:flex;
+    justify-content:space-between;
+    gap:1rem;
+    padding:.65rem .75rem;
+    background:var(--background-tertiary);
+    border:1px solid var(--border-color);
+    border-radius:12px;
+    margin-bottom:.6rem;
+}
+.public-submission-row .k{
+    color:var(--text-secondary);
+    font-weight:800;
+    font-size:.85rem;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+}
+.public-submission-row .v{
+    color:white;
+    font-weight:800;
+}
+.public-submission-divider{
+    height:1px;
+    background:var(--border-color);
+    margin:1rem 0;
+}
+.public-submission-json{
+    background:rgba(0,0,0,.25);
+    border:1px solid var(--border-color);
+    border-radius:12px;
+    padding:1rem;
+    color:#a8a8b3;
+    overflow:auto;
+    white-space:pre-wrap;
+    word-break:break-word;
+    font-family:'Courier New',monospace;
+    font-size:.9rem;
+}

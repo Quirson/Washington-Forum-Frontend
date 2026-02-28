@@ -1,0 +1,599 @@
+/* ==========================================
+   APPLICATION SUBMIT PAGE - MOBILE-FIRST
+   ========================================== */
+
+/* Main Container */
+.submit-page {
+    min-height: 100vh;
+    padding-top: 11.5rem; /* Header height (8rem banner + 3.5rem nav) */
+    background-color: var(--background-primary);
+}
+
+.submit-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+}
+
+/* Loading State */
+.submit-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+    gap: 1rem;
+    color: var(--text-secondary);
+}
+
+/* Error Card */
+.submit-error-card {
+    background-color: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.submit-error-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin: 0 0 0.5rem 0;
+    color: var(--text-primary);
+    font-family: 'Orbitron', 'Impact', sans-serif;
+}
+
+.submit-error-text {
+    color: var(--text-secondary);
+    margin: 0 0 1.5rem 0;
+    font-size: 0.95rem;
+}
+
+.submit-error-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Header Section */
+.submit-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.submit-title-section {
+    flex: 1;
+}
+
+.submit-title {
+    font-size: 1.75rem;
+    font-weight: 900;
+    margin: 0 0 0.5rem 0;
+    color: var(--text-primary);
+    font-family: 'Orbitron', 'Impact', sans-serif;
+    line-height: 1.2;
+}
+
+.submit-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.submit-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.submit-btn {
+    font-size: 0.875rem;
+    padding: 0.625rem 1rem;
+    white-space: nowrap;
+    flex: 1;
+    min-width: fit-content;
+    justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-icon {
+    flex-shrink: 0;
+}
+
+/* Show mobile text on small screens */
+.btn-text-mobile {
+    display: inline;
+}
+
+.btn-text-desktop {
+    display: none;
+}
+
+/* Form Card */
+.submit-card {
+    background-color: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.submit-form {
+    width: 100%;
+}
+
+/* Form Fields Container */
+.submit-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Individual Field Wrapper */
+.submit-field-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Label */
+.submit-label {
+    display: block;
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.submit-required {
+    color: #ef4444;
+    margin-left: 0.25rem;
+}
+
+/* Input Fields */
+.submit-input,
+.submit-textarea,
+.submit-select {
+    width: 100%;
+    font-size: 0.95rem;
+}
+
+.submit-textarea {
+    min-height: 140px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.submit-select {
+    cursor: pointer;
+}
+
+/* Checkbox */
+.submit-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    padding: 0.75rem;
+    background-color: var(--background-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+}
+
+.submit-checkbox-label:hover {
+    border-color: var(--accent-blue);
+    background-color: rgba(14, 165, 233, 0.05);
+}
+
+.submit-checkbox {
+    width: 1.25rem;
+    height: 1.25rem;
+    cursor: pointer;
+    accent-color: var(--accent-blue);
+    flex-shrink: 0;
+}
+
+.submit-checkbox-text {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+/* File Upload */
+.submit-file-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.submit-file-input-container {
+    position: relative;
+}
+
+.submit-file-input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.submit-file-input:disabled {
+    cursor: not-allowed;
+}
+
+.submit-file-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    background-color: var(--background-tertiary);
+    border: 2px dashed var(--border-color);
+    border-radius: 0.5rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.submit-file-input:hover + .submit-file-button {
+    border-color: var(--accent-blue);
+    background-color: rgba(14, 165, 233, 0.05);
+    color: var(--accent-blue);
+}
+
+.submit-file-status {
+    font-size: 0.875rem;
+}
+
+.submit-file-uploading {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-blue);
+}
+
+.submit-file-success {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-verified);
+}
+
+.submit-file-empty {
+    color: var(--text-secondary);
+}
+
+/* Field Hint */
+.submit-field-hint {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+}
+
+/* Footer */
+.submit-footer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.submit-submit-btn {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.submit-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Small Spinner */
+.spinner-small {
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-left-color: currentColor;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    animation: spin 0.6s linear infinite;
+    display: inline-block;
+}
+
+/* ==========================================
+   TABLET RESPONSIVE (768px+)
+   ========================================== */
+@media (min-width: 768px) {
+    .submit-page {
+        padding-top: 16rem; /* Adjusted for tablet header (12rem banner + 4rem nav) */
+    }
+
+    .submit-container {
+        padding: 2rem 1.5rem;
+    }
+
+    .submit-header {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+    }
+
+    .submit-title {
+        font-size: 2.25rem;
+    }
+
+    .submit-subtitle {
+        font-size: 1rem;
+    }
+
+    .submit-actions {
+        flex-wrap: nowrap;
+        align-items: flex-start;
+    }
+
+    .submit-btn {
+        flex: 0 0 auto;
+    }
+
+    /* Show desktop text, hide mobile */
+    .btn-text-mobile {
+        display: none;
+    }
+
+    .btn-text-desktop {
+        display: inline;
+    }
+
+    .submit-card {
+        padding: 2rem;
+    }
+
+    .submit-fields {
+        gap: 2rem;
+    }
+
+    .submit-label {
+        font-size: 1rem;
+    }
+
+    .submit-input,
+    .submit-textarea,
+    .submit-select {
+        font-size: 1rem;
+    }
+
+    .submit-checkbox-text {
+        font-size: 1rem;
+    }
+
+    .submit-submit-btn {
+        width: auto;
+        min-width: 250px;
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .submit-error-card {
+        padding: 3rem 2rem;
+    }
+
+    .submit-error-title {
+        font-size: 2rem;
+    }
+
+    .submit-error-text {
+        font-size: 1rem;
+    }
+}
+
+/* ==========================================
+   DESKTOP RESPONSIVE (1024px+)
+   ========================================== */
+@media (min-width: 1024px) {
+    .submit-page {
+        padding-top: 20rem; /* Adjusted for desktop header (16rem banner + 4rem nav) */
+    }
+
+    .submit-container {
+        padding: 2.5rem 2rem;
+        max-width: 1000px;
+    }
+
+    .submit-header {
+        margin-bottom: 2.5rem;
+    }
+
+    .submit-title {
+        font-size: 2.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .submit-subtitle {
+        font-size: 1.125rem;
+    }
+
+    .submit-card {
+        border-radius: 1rem;
+        padding: 2.5rem;
+    }
+
+    .submit-fields {
+        gap: 2.5rem;
+    }
+
+    .submit-label {
+        font-size: 1.0625rem;
+    }
+
+    .submit-textarea {
+        min-height: 180px;
+    }
+
+    .submit-checkbox-label {
+        padding: 1rem;
+    }
+
+    .submit-checkbox {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .submit-file-button {
+        padding: 1rem 1.5rem;
+    }
+
+    .submit-footer {
+        margin-top: 2.5rem;
+        padding-top: 2rem;
+    }
+
+    .submit-submit-btn {
+        font-size: 1.0625rem;
+        padding: 1rem 2rem;
+        min-width: 300px;
+    }
+
+    /* Hover effects for desktop */
+    .input-field:focus {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(14, 165, 233, 0.15);
+    }
+
+    .submit-checkbox-label:hover {
+        transform: translateX(4px);
+    }
+
+    .submit-submit-btn:not(:disabled):hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
+    }
+}
+
+/* ==========================================
+   EXTRA LARGE DESKTOP (1440px+)
+   ========================================== */
+@media (min-width: 1440px) {
+    .submit-container {
+        padding: 3rem 2rem;
+    }
+
+    .submit-title {
+        font-size: 3rem;
+    }
+
+    .submit-card {
+        padding: 3rem;
+    }
+}
+
+/* ==========================================
+   ACCESSIBILITY & FOCUS STATES
+   ========================================== */
+.submit-input:focus,
+.submit-textarea:focus,
+.submit-select:focus {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+}
+
+.submit-checkbox:focus {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+}
+
+.submit-file-input:focus + .submit-file-button {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+}
+
+.submit-submit-btn:focus {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 4px;
+}
+
+/* ==========================================
+   FORM VALIDATION STATES
+   ========================================== */
+.submit-input:invalid:not(:placeholder-shown),
+.submit-textarea:invalid:not(:placeholder-shown),
+.submit-select:invalid:not([value=""]) {
+    border-color: #ef4444;
+}
+
+.submit-input:valid:not(:placeholder-shown),
+.submit-textarea:valid:not(:placeholder-shown) {
+    border-color: var(--color-verified);
+}
+
+/* ==========================================
+   ANIMATIONS
+   ========================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.submit-card {
+    animation: fadeInUp 0.4s ease-out;
+}
+
+.submit-field-wrapper {
+    animation: fadeInUp 0.3s ease-out;
+}
+
+.submit-field-wrapper:nth-child(1) { animation-delay: 0.05s; }
+.submit-field-wrapper:nth-child(2) { animation-delay: 0.1s; }
+.submit-field-wrapper:nth-child(3) { animation-delay: 0.15s; }
+.submit-field-wrapper:nth-child(4) { animation-delay: 0.2s; }
+.submit-field-wrapper:nth-child(5) { animation-delay: 0.25s; }
+.submit-field-wrapper:nth-child(6) { animation-delay: 0.3s; }
+.submit-field-wrapper:nth-child(7) { animation-delay: 0.35s; }
+.submit-field-wrapper:nth-child(8) { animation-delay: 0.4s; }
+
+/* Reset animation for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .submit-card,
+    .submit-field-wrapper {
+        animation: none;
+    }
+}
+
+/* ==========================================
+   DARK MODE ENHANCEMENTS
+   ========================================== */
+.submit-card {
+    background: linear-gradient(
+            135deg,
+            var(--background-secondary) 0%,
+            rgba(28, 28, 36, 0.8) 100%
+    );
+}
+
+/* Subtle glow effect on focus */
+.input-field:focus,
+.submit-checkbox-label:has(.submit-checkbox:focus) {
+    box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1);
+}

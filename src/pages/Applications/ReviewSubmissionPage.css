@@ -1,0 +1,701 @@
+/* ==========================================
+   REVIEW SUBMISSION PAGE - MOBILE-FIRST
+   ========================================== */
+
+/* Main Container */
+.review-submission-page {
+    min-height: 100vh;
+    padding-top: 11.5rem; /* Header height (8rem banner + 3.5rem nav) */
+    background-color: var(--background-primary);
+}
+
+.review-submission-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+}
+
+/* Header Section */
+.review-submission-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.review-submission-title-section {
+    flex: 1;
+}
+
+.review-submission-title {
+    font-size: 1.75rem;
+    font-weight: 900;
+    margin: 0 0 0.25rem 0;
+    color: var(--text-primary);
+    font-family: 'Orbitron', 'Impact', sans-serif;
+    line-height: 1.2;
+}
+
+.review-submission-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin: 0;
+    font-family: 'Courier New', monospace;
+}
+
+.review-submission-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.review-submission-btn {
+    font-size: 0.875rem;
+    padding: 0.625rem 1rem;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: fit-content;
+    justify-content: center;
+}
+
+.btn-icon {
+    flex-shrink: 0;
+}
+
+/* Show mobile text on small screens */
+.btn-text-mobile {
+    display: inline;
+}
+
+.btn-text-desktop {
+    display: none;
+}
+
+/* Card Container */
+.review-submission-card {
+    background-color: var(--background-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading State */
+.review-submission-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+    gap: 1rem;
+    color: var(--text-secondary);
+}
+
+/* Error States */
+.review-submission-error,
+.review-submission-no-access {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+.review-submission-error-title,
+.review-submission-no-access-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin: 0 0 0.5rem 0;
+    color: var(--text-primary);
+    font-family: 'Orbitron', 'Impact', sans-serif;
+}
+
+.review-submission-error-text,
+.review-submission-no-access-text {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* Form Content */
+.review-submission-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1.5rem;
+}
+
+/* Section Titles */
+.review-section-title {
+    font-size: 1.125rem;
+    font-weight: 800;
+    margin: 0 0 1rem 0;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.review-section-title svg {
+    color: var(--accent-blue);
+    flex-shrink: 0;
+}
+
+/* Info Section */
+.review-info-section {
+    background-color: rgba(14, 165, 233, 0.05);
+    border: 1px solid rgba(14, 165, 233, 0.2);
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+}
+
+.review-info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.review-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.review-info-icon {
+    color: var(--accent-blue);
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+.review-info-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.review-info-value {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* Review Controls */
+.review-controls-section {
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+}
+
+.review-controls-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.review-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.review-field-full {
+    grid-column: 1 / -1;
+}
+
+.review-label {
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.review-required {
+    color: #ef4444;
+}
+
+.review-status-select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--background-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 0 0 0 0.75rem;
+}
+
+.review-status-select-wrapper svg {
+    flex-shrink: 0;
+}
+
+.review-status-select {
+    border: none !important;
+    background-color: transparent !important;
+    padding-left: 0.5rem !important;
+    flex: 1;
+}
+
+.review-textarea {
+    min-height: 140px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.review-field-hint {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+}
+
+/* Data Section */
+.review-data-section {
+    background-color: var(--background-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+}
+
+.review-data-content {
+    margin: 0;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: 0.85rem;
+    color: #a8a8b3;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+}
+
+/* Attachments Section */
+.review-attachments-section {
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+}
+
+.review-attachments-count {
+    margin-left: auto;
+    background-color: rgba(14, 165, 233, 0.2);
+    color: var(--accent-blue);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.review-attachments-empty {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    padding: 1rem;
+    text-align: center;
+    background-color: var(--background-tertiary);
+    border-radius: 0.375rem;
+}
+
+.review-attachments-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+}
+
+.review-attachment-item{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding: 1rem;
+    background-color: var(--background-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    overflow: hidden;
+}
+
+
+.review-attachment-item:hover {
+    border-color: var(--accent-blue);
+    background-color: rgba(14, 165, 233, 0.05);
+}
+
+.review-attachment-icon {
+    color: var(--accent-blue);
+    flex-shrink: 0;
+}
+
+.review-attachment-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.review-attachment-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+}
+
+.review-attachment-id {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-family: 'Courier New', monospace;
+}
+
+/* Submit Section */
+.review-submit-section {
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--border-color);
+}
+
+.review-submit-btn {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.review-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Small Spinner */
+.spinner-small {
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-left-color: currentColor;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    animation: spin 0.6s linear infinite;
+    display: inline-block;
+}
+
+/* ==========================================
+   TABLET RESPONSIVE (768px+)
+   ========================================== */
+@media (min-width: 768px) {
+    .review-submission-page {
+        padding-top: 16rem; /* Adjusted for tablet header (12rem banner + 4rem nav) */
+    }
+
+    .review-submission-container {
+        padding: 2rem 1.5rem;
+    }
+
+    .review-submission-header {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+    }
+
+    .review-submission-title {
+        font-size: 2.25rem;
+    }
+
+    .review-submission-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .review-submission-actions {
+        flex-wrap: nowrap;
+        align-items: flex-start;
+    }
+
+    .review-submission-btn {
+        flex: 0 0 auto;
+    }
+
+    /* Show desktop text, hide mobile */
+    .btn-text-mobile {
+        display: none;
+    }
+
+    .btn-text-desktop {
+        display: inline;
+    }
+
+    .review-submission-form {
+        padding: 2rem;
+        gap: 2.5rem;
+    }
+
+    .review-section-title {
+        font-size: 1.25rem;
+    }
+
+    .review-info-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .review-controls-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .review-attachments-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .review-submit-btn {
+        width: auto;
+        min-width: 250px;
+        margin-left: auto;
+    }
+
+    .review-error-title,
+    .review-no-access-title {
+        font-size: 2rem;
+    }
+
+    .review-data-content {
+        font-size: 0.9rem;
+    }
+}
+
+/* ==========================================
+   DESKTOP RESPONSIVE (1024px+)
+   ========================================== */
+@media (min-width: 1024px) {
+    .review-submission-page {
+        padding-top: 20rem; /* Adjusted for desktop header (16rem banner + 4rem nav) */
+    }
+
+    .review-submission-container {
+        padding: 2.5rem 2rem;
+    }
+
+    .review-submission-header {
+        margin-bottom: 2.5rem;
+    }
+
+    .review-submission-title {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .review-submission-subtitle {
+        font-size: 1rem;
+    }
+
+    .review-submission-card {
+        border-radius: 1rem;
+    }
+
+    .review-submission-form {
+        padding: 2.5rem;
+        gap: 3rem;
+    }
+
+    .review-section-title {
+        font-size: 1.375rem;
+        padding-bottom: 1rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .review-info-section,
+    .review-controls-section,
+    .review-data-section,
+    .review-attachments-section {
+        padding: 1.5rem;
+    }
+
+    .review-info-value {
+        font-size: 1rem;
+    }
+
+    .review-label {
+        font-size: 1rem;
+    }
+
+    .review-textarea {
+        min-height: 180px;
+    }
+
+    .review-data-content {
+        padding: 1.25rem;
+        font-size: 0.95rem;
+    }
+
+    .review-submit-btn {
+        font-size: 1.0625rem;
+        padding: 1rem 2rem;
+        min-width: 300px;
+    }
+
+    /* Hover effects for desktop */
+    .review-attachment-item:hover {
+        transform: translateX(4px);
+    }
+
+    .review-submit-btn:not(:disabled):hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
+    }
+
+    .input-field:focus {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(14, 165, 233, 0.15);
+    }
+}
+
+/* ==========================================
+   EXTRA LARGE DESKTOP (1440px+)
+   ========================================== */
+@media (min-width: 1440px) {
+    .review-submission-container {
+        padding: 3rem 2rem;
+    }
+
+    .review-submission-title {
+        font-size: 3rem;
+    }
+
+    .review-submission-form {
+        padding: 3rem;
+    }
+}
+
+/* ==========================================
+   ACCESSIBILITY & FOCUS STATES
+   ========================================== */
+.input-field:focus,
+.review-status-select:focus {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 2px;
+}
+
+.review-submit-btn:focus {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 4px;
+}
+
+/* ==========================================
+   ANIMATIONS
+   ========================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.review-submission-form > * {
+    animation: fadeInUp 0.4s ease-out;
+}
+
+.review-submission-form > *:nth-child(1) { animation-delay: 0.05s; }
+.review-submission-form > *:nth-child(2) { animation-delay: 0.1s; }
+.review-submission-form > *:nth-child(3) { animation-delay: 0.15s; }
+.review-submission-form > *:nth-child(4) { animation-delay: 0.2s; }
+.review-submission-form > *:nth-child(5) { animation-delay: 0.25s; }
+
+/* Reset animation for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .review-submission-form > * {
+        animation: none;
+    }
+}
+
+/* ==========================================
+   DARK MODE ENHANCEMENTS
+   ========================================== */
+.review-submission-card {
+    background: linear-gradient(
+            135deg,
+            var(--background-secondary) 0%,
+            rgba(28, 28, 36, 0.8) 100%
+    );
+}
+
+/* Subtle glow effect on focus */
+.input-field:focus,
+.review-status-select-wrapper:focus-within {
+    box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1);
+}
+
+/* Status-specific styling for rejected state */
+.review-field-full.review-field {
+    background-color: rgba(239, 68, 68, 0.05);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.review-attachment-top{
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.review-attachment-open{
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+    background: rgba(255,255,255,0.03);
+    color: var(--text-secondary);
+    transition: 0.2s ease;
+}
+.review-attachment-open:hover{
+    color: var(--accent-blue);
+    border-color: var(--accent-blue);
+    background: rgba(14,165,233,0.08);
+}
+
+.review-attachment-thumb{
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+    background: rgba(0,0,0,0.25);
+    overflow: hidden;
+}
+
+.review-attachment-thumb img{
+    width: 100%;
+    height: 220px;              /* faz ficar “consistente” */
+    object-fit: cover;          /* não deforma */
+    display: block;
+}
+
+.review-attachment-no-preview{
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px dashed var(--border-color);
+    color: var(--text-secondary);
+    text-align: center;
+    background: rgba(255,255,255,0.02);
+}
+.review-rejected-box{
+    background-color: rgba(239, 68, 68, 0.05);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}

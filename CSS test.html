@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Auth API</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .test { margin: 20px 0; padding: 20px; border: 1px solid #ccc; }
+        button { padding: 10px 20px; margin: 5px; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+<h1>Test Auth API</h1>
+
+<div class="test">
+    <h3>1. Test Backend Connection</h3>
+    <button onclick="testHealth()">Test /health</button>
+    <div id="health-result"></div>
+</div>
+
+<div class="test">
+    <h3>2. Test Register</h3>
+    <input id="username" placeholder="Username"><br>
+    <input id="email" placeholder="Email" type="email"><br>
+    <input id="password" placeholder="Password" type="password"><br>
+    <button onclick="testRegister()">Test Register</button>
+    <div id="register-result"></div>
+</div>
+
+<div class="test">
+    <h3>3. Test Login</h3>
+    <input id="login-email" placeholder="Email"><br>
+    <input id="login-password" placeholder="Password" type="password"><br>
+    <button onclick="testLogin()">Test Login</button>
+    <div id="login-result"></div>
+</div>
+
+<script>
+    const API_URL = 'https://api.washingtongaming.tech/api/v1';
+
+    async function testHealth() {
+        try {
+            const res = await fetch(API_URL + '/health');
+            const data = await res.json();
+            document.getElementById('health-result').innerHTML =
+                `<span class="${res.ok ? 'success' : 'error'}">${res.status} - ${JSON.stringify(data)}</span>`;
+        } catch (error) {
+            document.getElementById('health-result').innerHTML =
+                `<span class="error">Error: ${error.message}</span>`;
+        }
+    }
+
+    async function testRegister() {
+        const data = {
+            username: document.getElementById('username').value,
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value,
+            confirm_password: document.getElementById('password').value
+        };
+
+        try {
+            const res = await fetch(API_URL + '/auth/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            const result = await res.json();
+            document.getElementById('register-result').innerHTML =
+                `<span class="${res.ok ? 'success' : 'error'}">${res.status} - ${JSON.stringify(result)}</span>`;
+        } catch (error) {
+            document.getElementById('register-result').innerHTML =
+                `<span class="error">Error: ${error.message}</span>`;
+        }
+    }
+
+    async function testLogin() {
+        const data = {
+            email: document.getElementById('login-email').value,
+            password: document.getElementById('login-password').value
+        };
+
+        try {
+            const res = await fetch(API_URL + '/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+                credentials: 'include'
+            });
+            const result = await res.json();
+            document.getElementById('login-result').innerHTML =
+                `<span class="${res.ok ? 'success' : 'error'}">${res.status} - ${JSON.stringify(result)}</span>`;
+        } catch (error) {
+            document.getElementById('login-result').innerHTML =
+                `<span class="error">Error: ${error.message}</span>`;
+        }
+    }
+</script>
+</body>
+</html>

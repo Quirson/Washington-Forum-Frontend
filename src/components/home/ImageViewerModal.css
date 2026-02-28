@@ -1,0 +1,67 @@
+.iv-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.iv-modal {
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    max-height: 90vh;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(10,10,15,0.85);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.iv-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.iv-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.iv-zoom {
+    color: white;
+    font-weight: 700;
+    font-size: 0.875rem;
+    opacity: 0.9;
+}
+
+.iv-stage {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    touch-action: none;
+}
+
+.iv-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    user-select: none;
+    -webkit-user-drag: none;
+    max-width: none;
+    max-height: none;
+    width: auto;
+    height: auto;
+    translate: -50% -50%;
+}

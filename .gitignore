@@ -1,0 +1,29 @@
+# ENV
+.env
+
+# binaries
+main
+forum-backend
+*.exe
+*.out
+
+# uploads
+uploads/
+
+# database
+*.sql
+
+# IDE
+.idea/
+.vscode/
+
+# logs
+*.log
+
+# OS
+.DS_Store
+
+node_modules/
+dist/
+public/
+

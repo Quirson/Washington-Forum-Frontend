@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: washington-forum-frontend
+    ports:
+      - "3000:80"
+    environment:
+      - VITE_API_URL=http://backend:8000/api/v1
+    depends_on:
+      - backend
+    networks:
+      - washington-network
+    restart: unless-stopped
+
+  backend:
+    image: washington-backend:latest
+    container_name: washington-forum-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://user:password@db:5432/washington
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - db
+      - redis
+    networks:
+      - washington-network
+    restart: unless-stopped
+
+  db:
+    image: postgres:15-alpine
+    container_name: washington-forum-db
+    environment:
+      - POSTGRES_DB=washington
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - washington-network
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: washington-forum-redis
+    networks:
+      - washington-network
+    restart: unless-stopped
+
+networks:
+  washington-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
